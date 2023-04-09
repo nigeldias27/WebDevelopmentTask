@@ -21,12 +21,12 @@ export default function Home() {
         {questions.map((v, index) => {
           // Mapping the data of a list of objects to jsx elements
           return (
-            <div>
+            <div key={index}>
               <h1 className="py-12 font-bold">{v.question}</h1>
-              {v.options.map((vi) => {
+              {v.options.map((vi, innerindex) => {
                 //value of vi is each option/ answer
                 return (
-                  <div class="flex items-center mb-4">
+                  <div key={innerindex} class="flex items-center mb-4">
                     <input
                       type="radio"
                       value={vi}

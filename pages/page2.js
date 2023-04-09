@@ -45,7 +45,7 @@ export default function Page() {
           {data.map((v, index) => {
             //data is of the form [row1,row2,...] where each row is a [cell1,cell2]
             return (
-              <div>
+              <div key={index}>
                 {index != 0 ? ( //Used div instead of table to provide more flexiblity and customization
                   <div className="flex justify-center font-bold border-x-2 py-8 border-purple-500 bg-purple-400">
                     {headers[index]}
@@ -58,7 +58,10 @@ export default function Page() {
                     if (i % 2 == 0) {
                       // If i is even, then render a white background to the cell. Using this every alternate column has a more white background while the rest are transparent.
                       return (
-                        <div className="flex flex-col items-center border border-purple-500 text-gray-700 p-4 bg-purple-100 bg-opacity-50">
+                        <div
+                          key={i}
+                          className="flex flex-col items-center border border-purple-500 text-gray-700 p-4 bg-purple-100 bg-opacity-50"
+                        >
                           {index == 1 ? (
                             <FontAwesomeIcon icon={icons[i]} /> //If the row index is 1 then render an icon depending on the column pos.
                           ) : (
@@ -79,7 +82,10 @@ export default function Page() {
                       );
                     } else {
                       return (
-                        <div className="flex flex-col items-center border border-purple-500 text-gray-700 p-4">
+                        <div
+                          key={i}
+                          className="flex flex-col items-center border border-purple-500 text-gray-700 p-4"
+                        >
                           {index == 1 ? (
                             <FontAwesomeIcon icon={icons[i]} /> //If the row index is 1 then render an icon depending on the column pos.
                           ) : (
